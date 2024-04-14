@@ -13,47 +13,25 @@
 			<RowDefinition Height="*" />
 			<RowDefinition Height="Auto" />
 		</Grid.RowDefinitions>
-		<utu:NavigationBar x:Name="NavBar"
-						   MainCommandMode="Action">
-			<utu:NavigationBar.MainCommand>
-				<AppBarButton>
-					<AppBarButton.Icon>
-						<BitmapIcon UriSource="ms-appx:///Assets/Icons/burger.png" />
-					</AppBarButton.Icon>
-					<AppBarButton.Flyout>
-						<Flyout Placement="Full"
-								FlyoutPresenterStyle="{StaticResource NavFlyoutPresenterStyle}">
-							<Grid>
-								<Grid.RowDefinitions>
-									<RowDefinition Height="Auto" />
-									<RowDefinition Height="*" />
-								</Grid.RowDefinitions>
+		<NavigationView x:Name="NavView">
+			<NavigationView.MenuItems>
+				<NavigationViewItem Content="First" />
+				<NavigationViewItem Content="Second" />
+			</NavigationView.MenuItems>
+			<NavigationView.Content>
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="*" />
+					</Grid.RowDefinitions>
 
-								<Image HorizontalAlignment="Center"
-									   Height="150"
-									   Width="150"
-									   Source="ms-appx:///Assets/Images/unologo.png"
-									   Margin="0,16" />
+					<Frame x:Name="MainFrame" />
+					<utu:TabBar x:Name="TabBar"
+								Grid.Row="1"
+								Style="{StaticResource BottomTabBarStyle}" />
+				</Grid>
+			</NavigationView.Content>
+		</NavigationView>
 
-								<ItemsRepeater Grid.Row="1"
-											   x:Name="NavItemsRepeater">
-									<ItemsRepeater.ItemTemplate>
-										<DataTemplate>
-											<ToggleButton Content="{Binding Title}"
-														  Style="{StaticResource TextToggleButtonStyle}" />
-										</DataTemplate>
-									</ItemsRepeater.ItemTemplate>
-								</ItemsRepeater>
-							</Grid>
-						</Flyout>
-					</AppBarButton.Flyout>
-				</AppBarButton>
-			</utu:NavigationBar.MainCommand>
-		</utu:NavigationBar>
-		<Frame x:Name="MainFrame"
-			   Grid.Row="1" />
-		<utu:TabBar x:Name="TabBar"
-					Grid.Row="2"
-					Style="{StaticResource BottomTabBarStyle}" />
 	</Grid>
 </UserControl>

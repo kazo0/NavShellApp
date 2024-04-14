@@ -47,10 +47,19 @@ public sealed partial class NavigationShell : UserControl
 		var disposables = new CompositeDisposable();
 		_eventSubscriptions.Disposable = disposables;
 
+		NavView.SelectionChanged += OnNavViewSelectionChanged;
 		TabBar.SelectionChanged += OnTabBarSelectionChanged;
 		disposables.Add(Disposable.Create(() => TabBar.SelectionChanged -= OnTabBarSelectionChanged));
 
 		OnNavigationItemsChanged();
+	}
+
+	private void OnNavViewSelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
+	{
+		if (args.SelectedItem is NavigationViewItem navItem)
+		{
+			MainFrame.Navigate(typeof(FirstPage));
+		}
 	}
 
 	private void DisposeSubscriptions()
@@ -87,6 +96,6 @@ public sealed partial class NavigationShell : UserControl
 			});
 		}
 
-		NavItemsRepeater.ItemsSource = NavigationItems;
+		//NavItemsRepeater.ItemsSource = NavigationItems;
 	}
 }

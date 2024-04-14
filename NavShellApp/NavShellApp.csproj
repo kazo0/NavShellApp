@@ -40,5 +40,25 @@
       Toolkit;
     </UnoFeatures>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Remove="Assets\Icons\burger.svg" />
+    <Content Remove="Assets\Images\unologo.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Assets\Icons\burger.svg" />
+    <None Remove="Assets\Images\unologo.svg" />
+    <None Remove="Controls\NavigationShell.xaml" />
+    <None Remove="FirstPage.xaml" />
+    <None Remove="SecondPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <UpToDateCheckInput Remove="FirstPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <UpToDateCheckInput Remove="SecondPage.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Controls\NavigationShell.xaml" />
+  </ItemGroup>
 
 </Project>

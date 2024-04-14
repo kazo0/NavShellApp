@@ -1,15 +1,20 @@
 ﻿<Page x:Class="NavShellApp.MainPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:local="using:NavShellApp"
-      xmlns:utu="using:Uno.Toolkit.UI"
-      xmlns:um="using:Uno.Material"
-      Background="{ThemeResource BackgroundBrush}">
-  <StackPanel utu:SafeArea.Insets="VisibleBounds"
-        HorizontalAlignment="Center"
-        VerticalAlignment="Center">
-    <TextBlock AutomationProperties.AutomationId="HelloTextBlock"
-          Text="Hello Uno Platform"
-          HorizontalAlignment="Center" />
-  </StackPanel>
+	  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	  xmlns:local="using:NavShellApp"
+	  xmlns:utu="using:Uno.Toolkit.UI"
+	  xmlns:um="using:Uno.Material"
+	  Background="{ThemeResource BackgroundBrush}">
+	<local:NavigationShell>
+		<local:NavigationShell.NavigationItems>
+			<local:ShellItem Icon="Accept"
+							 Title="First">
+				<local:FirstPage />
+			</local:ShellItem>
+			<local:ShellItem Icon="Accept"
+							 Title="Second">
+				<local:SecondPage />
+			</local:ShellItem>
+		</local:NavigationShell.NavigationItems>
+	</local:NavigationShell>
 </Page>
